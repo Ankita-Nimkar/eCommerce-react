@@ -1,8 +1,10 @@
 import React from "react";
 import "./orders.css";
-const orders = () => {
+import Header from "../components/Header";
+const orders = ({ cart }) => {
   return (
     <div>
+      <Header cart={cart} />
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
 

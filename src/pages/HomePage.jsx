@@ -1,17 +1,9 @@
-import { useEffect, useState, React } from "react";
-import axios from "axios";
-
+import Header from "../components/Header";
 import "./homepage.css";
-const HomePage = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    axios.get("http://localhost:3000/api/products").then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
-
+const HomePage = ({ cart, products }) => {
   return (
     <>
+      <Header cart={cart} />
       <div className="home-page">
         <div className="products-grid">
           {products.map((prod) => {

@@ -9,7 +9,10 @@ const Checkout = () => {
         <div className="header-content">
           <div className="checkout-header-left-section">
             <a href="/">
-              <img className="logo" src="images/shopping-bag (1).png" />
+              <img
+                className="logo"
+                src="images/Peoplely__3_-removebg-reverse.png"
+              />
               <img className="mobile-logo" src="images/mobile-logo.png" />
             </a>
           </div>

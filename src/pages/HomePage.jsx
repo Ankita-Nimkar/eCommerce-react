@@ -2,12 +2,16 @@ import React from "react";
 import { products } from "../assets/data/products";
 import "./homepage.css";
 const HomePage = () => {
+  fetch("http://localhost:3000/api/products")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => console.log(data));
   return (
     <>
       <div className="home-page">
         <div className="products-grid">
           {products.map((prod) => {
-            console.log((prod.priceCents / 100).toFixed(2));
             return (
               <div key={prod.id} className="product-container">
                 <div className="product-image-container">

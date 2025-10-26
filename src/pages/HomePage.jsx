@@ -1,12 +1,12 @@
 import React from "react";
+import axios from "axios";
 import { products } from "../assets/data/products";
 import "./homepage.css";
 const HomePage = () => {
-  fetch("http://localhost:3000/api/products")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => console.log(data));
+  axios.get("http://localhost:3000/api/products").then((response) => {
+    console.log(response.data);
+  });
+
   return (
     <>
       <div className="home-page">

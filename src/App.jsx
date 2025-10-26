@@ -14,15 +14,17 @@ function App() {
     axios.get("http://localhost:3000/api/products").then((response) => {
       setProducts(response.data);
     });
-    axios.get("http://localhost:3000/api/cart-items").then((response) => {
-      setCart(response.data);
-    });
+    axios
+      .get("http://localhost:3000/api/cart-items?expand=product")
+      .then((response) => {
+        setCart(response.data);
+      });
   }, []);
   return (
     <>
       <Routes>
         <Route index element={<HomePage cart={cart} products={products} />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout cart={cart} />} />
         <Route path="/orders" element={<Orders cart={cart} />} />
         <Route path="/tracking" element={<Tracking />} />
       </Routes>

@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import "./homepage.css";
+import { formatMoney } from "../utils/money";
 const HomePage = ({ cart, products }) => {
   return (
     <>
@@ -28,7 +29,7 @@ const HomePage = ({ cart, products }) => {
                 </div>
 
                 <div className="product-price">
-                  ${(prod.priceCents / 100).toFixed(2)}
+                  {formatMoney(prod.priceCents)}
                 </div>
 
                 <div className="product-quantity-container">

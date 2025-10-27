@@ -8,22 +8,22 @@ import Tracking from "./pages/Tracking";
 import axios from "axios";
 function App() {
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState([]);
+
+  const loadCart = async () => {
+    const response = await axios.get(
+      "http://localhost:3000/api/cart-items?expand=product"
+    );
+
+    setCart(response.data);
+  };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/products").then((response) => {
-      setProducts(response.data);
-    });
-    axios
-      .get("http://localhost:3000/api/cart-items?expand=product")
-      .then((response) => {
-        setCart(response.data);
-      });
+    loadCart();
   }, []);
   return (
     <>
       <Routes>
-        <Route index element={<HomePage cart={cart} products={products} />} />
+        <Route index element={<HomePage cart={cart} loadCart={loadCart} />} />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
         <Route path="/orders" element={<Orders cart={cart} />} />
         <Route path="/tracking" element={<Tracking />} />

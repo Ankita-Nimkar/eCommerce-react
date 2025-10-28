@@ -44,7 +44,12 @@ const Checkout = ({ cart, loadCart }) => {
             loadCart={loadCart}
           />
 
-          {paymentSummary && <PaymentSummary paymentSummary={paymentSummary} />}
+          {paymentSummary && (
+            <PaymentSummary
+              paymentSummary={paymentSummary}
+              loadCart={loadCart}
+            />
+          )}
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import { DeliveryOptions } from "../components/DeliveryOptions";
 import { formatMoney } from "../utils/money";
-export const OrderSummary = ({ deliveryOptions, cart }) => {
+export const OrderSummary = ({ deliveryOptions, cart, loadCart }) => {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
@@ -47,6 +47,7 @@ export const OrderSummary = ({ deliveryOptions, cart }) => {
                 <DeliveryOptions
                   deliveryOptions={deliveryOptions}
                   item={item}
+                  loadCart={loadCart}
                 />
               </div>
             </div>

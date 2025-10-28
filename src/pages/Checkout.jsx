@@ -24,7 +24,6 @@ const Checkout = ({ cart, loadCart }) => {
   useEffect(() => {
     axios.get("http://localhost:3000/api/payment-summary").then((response) => {
       setPaymentSummary(response.data);
-      console.log(paymentSummary);
     });
   }, [cart]);
 

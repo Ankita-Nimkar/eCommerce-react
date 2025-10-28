@@ -2,6 +2,7 @@ import React from "react";
 import { formatMoney } from "../utils/money";
 import axios from "axios";
 import { useState } from "react";
+import { ItemQuantityInput } from "./ItemQuantityInput";
 export const Products = ({ prod, loadCart }) => {
   const [selectedValue, setSelectedValue] = useState(1);
   const [isBtnClicked, setIsBtnClicked] = useState(false);
@@ -38,30 +39,14 @@ export const Products = ({ prod, loadCart }) => {
 
       <div className="product-price">{formatMoney(prod.priceCents)}</div>
 
-      <div
-        className="product-quantity-container"
-        value={selectedValue}
-        onChange={(event) => {
-          setSelectedValue(Number(event.target.value));
-        }}
-      >
-        <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </div>
+      <ItemQuantityInput
+        selectedValue={selectedValue}
+        setSelectedValue={setSelectedValue}
+      />
 
       <div className="product-spacer"></div>
 
-      <div className={isBtnClicked ? "addText" : "added-to-cart"}>
+      <div className={isBtnClicked ? "showEle" : "hideEle"}>
         <img src="images/icons/checkmark.png" width="20px" />
         Added
       </div>
